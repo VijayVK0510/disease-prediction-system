@@ -14,16 +14,36 @@ from fastapi.middleware.cors import CORSMiddleware
 
 load_dotenv()  # loads .env into environment
 
-FRONTEND_URL = os.getenv("FRONTEND_URL")
+#FRONTEND_ORIGINS = os.getenv("FRONTEND_ORIGINS", "")
 
+#ALLOWED_ORIGINS = [
+ #   origin.strip().rstrip("/")
+  #  for origin in FRONTEND_ORIGINS.split(",")
+   # if origin.strip()
+#]
+
+
+#origins = os.getenv("FRONTEND_ORIGINS", "")
+
+#ALLOWED_ORIGINS = [origin.strip() for origin in origins.split(",") if origin.strip()]
+
+#*app.add_middleware(
+ #   CORSMiddleware,
+#    allow_origins=ALLOWED_ORIGINS,
+ #   allow_credentials=True,
+ #   allow_methods=["*"],
+ #   allow_headers=["*"],
+#)
+from fastapi.middleware.cors import CORSMiddleware
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[FRONTEND_URL],
+    allow_origins=["*"],  # TEMPORARY — DEBUG ONLY
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 
 
