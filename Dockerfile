@@ -13,4 +13,5 @@ COPY ml ./ml
 # 6️⃣ Expose port (Render expects 8000)
 EXPOSE 8000
 # 7️⃣ Start FastAPI app
-CMD ["sh", "-c", "uvicorn backend.main:app --host 0.0.0.0 --port ${PORT}"]
+CMD sh -c "uvicorn backend.main:app --host 0.0.0.0 --port ${PORT:-8000}"
+
