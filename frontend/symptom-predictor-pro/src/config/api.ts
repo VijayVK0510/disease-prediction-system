@@ -10,11 +10,14 @@
 
 // export const API_BASE_URL = "/* BACKEND_URL_HERE */";
 
-// Uncomment one of the following for development/production:
- export const API_BASE_URL = "http://localhost:8000";
-// export const API_BASE_URL = "https://your-render-app.onrender.com";
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
+if (!API_BASE_URL) {
+  throw new Error("VITE_API_BASE_URL is not defined");
+}
 
 export const API_ENDPOINTS = {
   symptoms: `${API_BASE_URL}/symptoms`,
   predict: `${API_BASE_URL}/predict`,
 } as const;
+
