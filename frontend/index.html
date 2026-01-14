@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Disease Prediction System</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <h1>Disease Prediction</h1>
+    <p class="subtitle">Select symptoms and get a quick prediction</p>
+  </header>
+
+  <main class="container">
+    <section class="controls">
+      <div class="search-wrap">
+        <input
+          id="searchBox"
+          type="search"
+          placeholder="Search symptoms..."
+          aria-label="Search symptoms"
+        />
+      </div>
+
+      <div class="actions">
+        <button id="clearBtn" class="muted">Clear</button>
+        <button id="predictBtn" class="primary">Predict Disease</button>
+      </div>
+    </section>
+
+    <section class="symptoms-section">
+  <h3 class="section-title">Symptoms</h3>
+  <div id="symptom-list" class="symptom-grid" aria-live="polite"></div>
+</section>
+
+<!-- Current prediction result -->
+<section id="result-area" class="result-area" aria-live="polite">
+  <!-- result card inserted by JS -->
+</section>
+
+<!-- Prediction history (SEPARATE) -->
+<section class="history-area">
+  <h3 class="section-title">Prediction History</h3>
+  <div id="history-list" class="history-list"></div>
+</section>
+  </main>
+
+  <!-- spinner overlay -->
+  <div id="spinnerOverlay" class="spinner-overlay hidden" aria-hidden="true">
+    <div class="spinner"></div>
+    <div class="spinner-text">Predicting...</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
